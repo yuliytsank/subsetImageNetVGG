@@ -23,7 +23,7 @@ This is an exploration of CNNs on the toy problem of classifying a small subset 
 ### Testing different network architectures by making modifications to VGG
 
 #### Max Pooling Choice:
-Here the effects on performance are tested when taking out the first two pooling layers vs. taking out the last two pooling layers from the VGG-16 architecture. Two pooling layers need to be taken out in order to adjust the accepted input to the network from 224x224 to a 56x56 size. There is a clear advantage of using a network with the first two pooling layers removed. 
+Here the effects on performance are tested when taking out the first two pooling layers vs. taking out the last two pooling layers from the VGG-16 architecture. Two pooling layers need to be taken out in order to adjust the accepted input to the network from 224x224 to a 56x56 size. There is a clear advantage of using a network with the first two pooling layers removed instead of the last two layers. 
 
-![alt text](/Results Plots/Pool_layers_choice.png "Choice of pooling layers reduction")
+![alt text](</Results Plots/Pool_layers_choice.png?raw=true> "Choice of pooling layers reduction")
 
