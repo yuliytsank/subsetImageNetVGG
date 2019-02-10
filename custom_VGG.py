@@ -1,10 +1,10 @@
 
 #code modified from https://github.com/pytorch/vision/blob/master/torchvision/models/vgg.py in order to process 56x56 image sizes 
+#code is also modified to output activations from last fully connected layer rather than softmax probability scores
 
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 import math
-import pdb
 
 
 __all__ = [
@@ -35,29 +35,14 @@ class VGG(nn.Module):
             nn.Dropout(dropout_p),
             nn.Linear(4096, num_classes),
         )
-#        self.lin1 = nn.Linear(512 * 7 * 7, 4096)
-#        self.relu1 = nn.ReLU(True)
-#        self.drop1 =  nn.Dropout()
-#        self.lin2 = nn.Linear(4096, 4096)
-#        self.relu2 = nn.ReLU(True)
-#        self.drop2 = nn.Dropout()
-#        self.lin3 = nn.Linear(4096, num_classes)
         
         self._initialize_weights()
 
     def forward(self, x):
         x = self.features(x)
-#        pdb.set_trace()
         x = x.view(x.size(0), -1)
         x = self.classifier(x)
-#        x = self.lin1(x)
-#        x = self.relu1(x)
-#        x = self.drop1(x)
-#        x = self.lin2(x)
-#        x = self.relu2(x)
-#        x = self.drop2(x)
-#        x = self.lin3(x)
-        
+
         return x
 
     def _initialize_weights(self):
